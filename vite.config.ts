@@ -24,6 +24,7 @@ export default defineConfig({
         },
     },
     build: {
+        target: 'es2015', // es2015编译
         lib: {
             entry: path.resolve(process.cwd(), './src/packages/index.ts'),
             name: 'index',
