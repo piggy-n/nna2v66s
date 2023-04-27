@@ -1,5 +1,7 @@
 import 'virtual:svg-icons-register';
-import * as styles from './Icon.css';
+import { useMemo } from 'react';
+import { isNumber } from 'ahooks/es/utils';
+import { iconContainer } from './Icon.css';
 import type { CSSProperties, FC, SVGAttributes } from 'react';
 
 interface IconProps extends SVGAttributes<SVGElement> {
@@ -23,14 +25,23 @@ const Icon: FC<IconProps> = (
         ...rest
     },
 ) => {
+    const iconSize = useMemo(
+        () => isNumber(size) ? `${size}px` : undefined,
+        [size],
+    );
+
+    const iconTransform = useMemo(
+        () => isNumber(rotate) ? `rotate(${rotate}deg)` : undefined,
+        [rotate],
+    );
+
     return (
         <svg
-            className={styles.iconContainer}
-            fill={fill}
+            className={iconContainer}
             style={{
-                width: size && `${size}px`,
-                height: size && `${size}px`,
-                transform: `rotate(${rotate ?? 0}deg)`,
+                width: iconSize,
+                height: iconSize,
+                transform: iconTransform,
                 ...style,
             }}
             {...rest}
@@ -39,7 +50,11 @@ const Icon: FC<IconProps> = (
                 title &&
                 <title>{title}</title>
             }
-            <use xlinkHref={`#ws-${name}`} fill={fill} style={useEleStyles} />
+            <use
+                fill={fill}
+                style={useEleStyles}
+                xlinkHref={`#ws-${name}`}
+            />
         </svg>
     );
 };

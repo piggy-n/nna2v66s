@@ -12,9 +12,7 @@ export default defineConfig({
         libCss(),
         vanillaExtractPlugin(),
         createSvgIconsPlugin({
-            // 配置svg存放的文件夹，默认为src/packages/assets/icons
             iconDirs: [path.resolve(process.cwd(), './src/packages/assets/icons')],
-            // 配置symbolId格式，默认为ws+名字
             symbolId: 'ws-[name]',
         }),
     ],
@@ -24,7 +22,7 @@ export default defineConfig({
         },
     },
     build: {
-        target: 'es2015', // es2015编译
+        target: 'es2015',
         lib: {
             entry: path.resolve(process.cwd(), './src/packages/index.ts'),
             name: 'index',
