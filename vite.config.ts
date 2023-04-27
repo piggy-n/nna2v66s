@@ -1,6 +1,7 @@
 import path from 'path';
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import typescript from '@rollup/plugin-typescript';
+import { defineConfig } from 'vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 export default defineConfig({
@@ -15,7 +16,29 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': path.resolve(process.cwd(), './src'),
+        },
+    },
+    build: {
+        lib: {
+            entry: path.resolve(process.cwd(), './src/packages/index.ts'),
+            name: 'index',
+            fileName: format => `index.${format}.js`,
+        },
+        rollupOptions: {
+            external: ['react', 'react-dom'],
+            output: {
+                globals: {
+                    'react': 'React',
+                    'react-dom': 'ReactDOM',
+                },
+            },
+            plugins: [
+                typescript({
+                    tslib: path.resolve(process.cwd(), './node_modules/typescript'),
+                    outDir: path.resolve(process.cwd(), './dist'),
+                }),
+            ],
         },
     },
 });
