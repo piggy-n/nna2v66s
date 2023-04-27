@@ -1,12 +1,16 @@
 import path from 'path';
 import react from '@vitejs/plugin-react';
 import typescript from '@rollup/plugin-typescript';
+import libCss from 'vite-plugin-libcss';
 import { defineConfig } from 'vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 export default defineConfig({
     plugins: [
         react(),
+        libCss(),
+        vanillaExtractPlugin(),
         createSvgIconsPlugin({
             // 配置svg存放的文件夹，默认为src/packages/assets/icons
             iconDirs: [path.resolve(process.cwd(), './src/packages/assets/icons')],

@@ -1,4 +1,5 @@
 import 'virtual:svg-icons-register';
+import * as styles from './Icon.css';
 import type { CSSProperties, FC, SVGAttributes } from 'react';
 
 interface IconProps extends SVGAttributes<SVGElement> {
@@ -24,6 +25,7 @@ const Icon: FC<IconProps> = (
 ) => {
     return (
         <svg
+            className={styles.iconContainer}
             fill={fill}
             style={{
                 width: size && `${size}px`,
