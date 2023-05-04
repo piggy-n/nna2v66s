@@ -25,4 +25,5 @@ globalStyle(`*:not(${[...parentElements, ...childElements].join()})`, {
 
 globalStyle('*, *::before, *::after', {
     boxSizing: 'border-box',
+    fontFamily: 'Alibaba-PuHuiTi-Regular',
 });
