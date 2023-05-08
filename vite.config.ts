@@ -4,12 +4,14 @@ import typescript from '@rollup/plugin-typescript';
 import libCss from 'vite-plugin-libcss';
 import { defineConfig } from 'vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 export default defineConfig(
     ({ command }) => ({
         plugins: [
             react(),
             libCss(),
+            vanillaExtractPlugin(),
             createSvgIconsPlugin({
                 iconDirs: [path.resolve(process.cwd(), './src/packages/assets/icons')],
                 symbolId: 'ws-[name]',

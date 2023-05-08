@@ -1,3 +1,4 @@
+import '@/example/css/global.css';
 import { Icon } from '@/packages';
 
 function App() {

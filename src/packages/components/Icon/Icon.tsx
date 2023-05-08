@@ -1,6 +1,7 @@
 import 'virtual:svg-icons-register';
 import { useMemo } from 'react';
 import { isNumber } from 'ahooks/es/utils';
+import { iconContainer } from './Icon.css';
 import type { CSSProperties, FC, SVGAttributes } from 'react';
 
 interface IconProps extends SVGAttributes<SVGElement> {
@@ -36,6 +37,7 @@ const Icon: FC<IconProps> = (
 
     return (
         <svg
+            className={iconContainer}
             style={{
                 width: iconSize,
                 height: iconSize,
