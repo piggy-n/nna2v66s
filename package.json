@@ -30,8 +30,9 @@
     "@vitejs/plugin-react": "^4.0.0",
     "ahooks": "^3.7.6",
     "fast-glob": "^3.2.12",
+    "sass": "^1.62.1",
     "typescript": "^4.9.5",
-    "vite": "^4.3.2",
+    "vite": "^4.3.5",
     "vite-plugin-libcss": "^1.0.6",
     "vite-plugin-svg-icons": "^2.0.1"
   }
