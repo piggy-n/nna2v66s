@@ -1,7 +1,7 @@
 import 'virtual:svg-icons-register';
+import s from './styles/icon.module.scss';
 import { useMemo } from 'react';
 import { isNumber } from 'ahooks/es/utils';
-import s from './styles/icon.module.scss';
 import type { CSSProperties, FC, SVGAttributes } from 'react';
 
 interface IconProps extends SVGAttributes<SVGElement> {
